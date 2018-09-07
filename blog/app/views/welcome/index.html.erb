@@ -1,0 +1,7 @@
+<h1>Arrancando la Magia 2</h1>
+
+<% if user_signed_in? %>
+	<h1>Bienvenido <%= current_user.email %></h1>
+<% else %>
+	<h1>Bienvenido a la Magia!</h1>
+<%end%>
