@@ -8,7 +8,7 @@
 	<% @category.articles.each do |art| %>
 		<h3><%= link_to art.title, art %></h3>
 		<div>
-			<%= art.body %> - <%= link_to "Eliminar", art, method: :delete, class:"red"%>
+			<%= art.body.html_safe %> - <%= link_to "Eliminar", art, method: :delete, class:"red"%>
 		</div>
 	<%end%>
 </p>

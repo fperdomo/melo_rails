@@ -5,3 +5,22 @@
 <% else %>
 	<h1>Bienvenido a la Magia!</h1>
 <%end%>
+
+<h3>Artículos</h3>
+<div class="field">
+	 <%= link_to "Listado Artículos", articles_path %>
+</div>
+<div class="field">
+	 <%= link_to "Nuevo Artículo", new_article_path %>
+</div>
+<h3>Categorías</h3>
+<div class="field">
+	 <%= link_to 'Listado Categorías', categories_path %>
+</div>
+<div class="field">
+	 <%= link_to 'Nueva Categoría', new_category_path %>
+</div>
+<h3>Dashboard</h3>
+<div class="field">
+	 <%= link_to 'Dashboard Admin', dashboard_path %>
+</div>

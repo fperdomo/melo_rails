@@ -1,4 +1,6 @@
 class Article < ApplicationRecord
+	include AASM
+
 	belongs_to :user
 	has_many :comments
 	has_many :has_categories
@@ -26,12 +28,37 @@ class Article < ApplicationRecord
 		end
 	end
 
+	scope :publicados, ->{ where(state: "published")}
+	# Esta linea en rails es equivalente a lo de abajo.
+	# def self.publicados
+	# 	Article.where{state:"published"}
+	# end
+
+	scope :ultimos, ->{ order("created_at DESC")}
+
+	aasm column: "state" do 
+		state :in_draft, inital: true
+		state :published
+
+		event :publish do
+			transitions from: :in_draft, to: :published
+		end
+
+		event :unpublish do
+			transitions from: :published, to: :in_draft
+		end
+	end
+
+
 	private
 
 	def save_categories
-		@categories.each do |category_id|
-			HasCategory.create(category_id: category_id, article_id: self.id)
+		unless @categories.nil?
+			@categories.each do |category_id|
+				HasCategory.create(category_id: category_id, article_id: self.id)
+			end
 		end
+	
 	end
 
 	def set_visits_count

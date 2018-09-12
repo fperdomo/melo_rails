@@ -7,6 +7,10 @@ html, body{
 	color: #E74C3C !important;
 }
 
+.blue{
+	color: #4799B7 !important;
+}
+
 a,a:visited{
 	color: inherit;
 	text-decoration: none;
@@ -59,4 +63,26 @@ ul {
 
 .text-left{
 	text-align: left
+}
+
+.text-center{
+	text-align: center
+}
+
+.article-height{
+	height: 300px;
+}
+
+.background-cover
+{
+	background-position: center !important;
+	background-size: cover !important;
+}
+
+.relative{
+	position: relative;
+}
+
+.absolute{
+	position: absolute;
 }

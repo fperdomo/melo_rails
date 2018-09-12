@@ -1,6 +1,32 @@
-<% @articles.each do |art| %>
-	<h1><%= link_to art.title, art %></h1>
-	<div>
-		<%= art.body %> - <%= link_to "Eliminar", art, method: :delete, class:"red"%>
+<div class="conteiner" style="margin:0 auto;">
+	<h1>Artículos</h1>
+	<div class="row">
+		<% @articles.each do |art| %>		
+			<div class="col-md-4 top-space">
+				<div class="box relative article-height">
+					<% if art.cover.exists? %>
+						<div class="absolute article-height background-cover" style="background:url(<%= art.cover.url(:thumb)%>);top:0px;left: 0px;width: 100%;">
+						
+					</div>
+					<%else%>
+						<div class="absolute article-height background-cover" style="background: rgba(158,171,186);top: 0px;left: 0px; width: 100%;"></div>
+					<%end%>
+					<div class="relative gray text-center">
+						<h3><%= link_to art.title, art %></h3>
+						<p>
+							<%= truncate(art.body.html_safe, length:20) %>
+						</p>
+					</div>
+					
+				</div>
+				
+				
+			</div>
+		<%end%>		
 	</div>
-<%end%>
+	<div class="top-space text-center">
+		<%= will_paginate @articles %>
+	</div>
+
+
+</div>

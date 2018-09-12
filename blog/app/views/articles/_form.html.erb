@@ -13,7 +13,7 @@
 		Portada: <%= f.file_field :cover%>
 	</div>
 	<div class="field">
-		<%= f.text_area :body, placeholder: "Escribe aqui el artículo", style: "height:300px", class:"form-control"%>
+		<%= f.trix_editor :body, required: true, autofocus: true %>
 	</div>
 	<div class="field">
 		<label>Categorías</label>
