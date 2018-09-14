@@ -43,6 +43,10 @@ ul {
 	color:#F1E2CB;
 }
 
+.grey{
+	color: #417AB2;
+}
+
 .large-padding{
 	padding: 1px 10px;
 }
@@ -65,10 +69,17 @@ ul {
 	text-align: left
 }
 
+.text-right{
+	text-align: right;
+}
+
 .text-center{
 	text-align: center
 }
 
+.text-justify{
+	text-align: justify;
+}
 .article-height{
 	height: 300px;
 }
@@ -85,4 +96,20 @@ ul {
 
 .absolute{
 	position: absolute;
+}
+
+.be-big{
+	font-size: 2em;
+}
+
+.be-small{
+	font-size: 12px;
+}
+
+.underline{
+	text-decoration: underline;
+}
+
+.bottom-space{
+	margin-bottom: 2em;
 }
