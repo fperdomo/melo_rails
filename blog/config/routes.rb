@@ -1,7 +1,9 @@
 Rails.application.routes.draw do 
   
   resources :categories
-  devise_for :users
+  devise_for :users, controllers: {
+		omniauth_callbacks: 'users/omniauth_callbacks'
+	}
   resources :articles do 
   	resources :comments, only: [:create, :destroy, :update]
   end 
@@ -22,5 +24,8 @@ Rails.application.routes.draw do
 	get "/report", to: "welcome#report"
 
 
-  put "/articles/:id/publish", to: "articles#publish"
+	put "/articles/:id/publish", to: "articles#publish"
+	devise_scope :user do
+		post '/sign_up_validation', to: 'users/omniauth_callbacks#sign_up_validation'
+	end
 end
