@@ -1,3 +1,11 @@
+<h3>Reporte</h3>
+<div class="field">
+	<div class="col-xs-6 col-md-3\">
+		<input type="date" id="dateFilter" class="form-control" >
+	</div>
+	<input id="btn-report" type="submit" class="btn be-green gray" value="Reporte" />
+<div>
+
 <% @articles.each do |art| %>
 	<h1><%= link_to art.title, art %></h1>
 	<div>

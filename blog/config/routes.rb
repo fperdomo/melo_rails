@@ -19,6 +19,8 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   get "/dashboard", to: "welcome#dashboard"
+	get "/report", to: "welcome#report"
+
 
   put "/articles/:id/publish", to: "articles#publish"
 end

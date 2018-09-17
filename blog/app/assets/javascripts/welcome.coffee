@@ -1,3 +1,7 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+$ ->
+  $("#btn-report").click ->
+    dateSelect = $("#dateFilter").val();
+    if (dateSelect != "")
+      request = $.get '/report?filter=' + dateSelect      
+    else
+        alert "Debe seleccionar una fecha para el reporte"

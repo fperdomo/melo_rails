@@ -28,6 +28,9 @@ class CommentsController < ApplicationController
     @comment.article = @article
     respond_to do |format|
       if @comment.save
+        usermail = @comment.article.user.email
+        CommentMailMailer.sendMailToAuthor(usermail, @comment).deliver
+
         format.html { redirect_to @comment.article }
         format.json { render :show, status: :created, location: @comment.article }
       else
